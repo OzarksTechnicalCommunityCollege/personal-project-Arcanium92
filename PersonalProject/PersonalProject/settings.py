@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'game_review.apps.GameReviewConfig', #create database tables for game_review models
 ]
 
 MIDDLEWARE = [
