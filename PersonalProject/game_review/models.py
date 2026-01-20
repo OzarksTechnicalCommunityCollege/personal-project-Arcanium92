@@ -14,10 +14,10 @@ class GameReview(models.Model):
     updated = models.DateTimeField(auto_now_add=True) #Stores time and date post was updated
 
     class Meta:
-        ordering = ['-review_text'] #Meta class for sort order
+        ordering = ['-created'] #Meta class for sort order
         indexes = [
-            models.Index(fields=['-review_text']),
-        ] # Database index
+            models.Index(fields=['-created']),
+        ] #Database index
 
     def __str__(self):
         return self.title, self.reviewer, self.rating, self.review_text, self.submission

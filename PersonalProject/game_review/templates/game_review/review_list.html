@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game Reviews</title>
+</head>
+<body>
+    <h1>Game Reviews</h1>
+    {% for reviews in reviews %}
+        <div>
+            <h2>{{ review.title }} - {{ review.rating }}/10</h2>
+            <p>Author: {{ review.reviewer }}</p>
+            <p>{{ review.review_text }}</p>
+            <p>Submitted on: {{ review.submission }}</p>
+            <br>
+        </div>
+    {% empty %}
+        <p>No reviews submitted yet.</p>
+    {% endfor %}
+</body>
+</html>
