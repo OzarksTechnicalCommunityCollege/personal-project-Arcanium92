@@ -2,3 +2,4 @@
 # CSC_161_Personal_Project
 ## Project Overview
 1/18/26 - This project is going to be a game rating submission site that allows a user to input games and rate them.
+Finished basic setup for Django and worked on adding an add_review.html page as well as a review_list.html page for website viewing. Next step to add home page that both can be viewed on.
