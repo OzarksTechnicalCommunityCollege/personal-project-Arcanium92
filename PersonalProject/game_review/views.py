@@ -5,7 +5,7 @@ from .forms import GameReviewForm
 # Create your views here.
 def review_list(request):
     reviews = GameReview.objects.all()
-    return render(request, "game_review/review_list.html", {"reviews": reviews})
+    return render(request, "game_review/home.html", {"reviews": reviews})
 
 def add_review(request):
     if request.method == "POST":
