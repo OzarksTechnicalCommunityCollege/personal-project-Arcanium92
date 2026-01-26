@@ -11,7 +11,9 @@
      <div id="content">
 
         <!-- Adding image for flare-possibly change later -->
-        <img src="{% static 'imgs/mage.jpg' %}" alt="Mage">
+        <img src="{% static 'imgs/mage.jpg' %}" alt="Mage" width="1200px"> <!--Playing around with header imgs-->
+         <p>Image to get attention</p>
+
         {% block content %}
         {% endblock %}
      </div>
@@ -20,5 +22,7 @@
         <h2>Game Reviews</h2>
         <p>Review your favorite games and see what others think of them!</p>
      </div>
+      {% include "review/pagination.html" with page=posts %}
+
 </body>
 </html>
