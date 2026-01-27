@@ -6,7 +6,7 @@ from django.db.models.functions import Now
 class GameReview(models.Model):
     title = models.CharField(max_length=250)
     reviewer = models.CharField(max_length=250)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='game_reviews')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='game_reviews', null=True, blank=True)
     rating = models.IntegerField()
     review_text = models.TextField()
     submission = models.DateTimeField(db_default=Now())

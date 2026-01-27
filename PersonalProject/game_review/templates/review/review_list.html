@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Game Reviews</title>
-</head>
-<body>
-    <h1>Game Reviews</h1>
-    <p><a href="/reviews/add/">Add review</a></p>
-    {% for reviews in reviews %}
-        <div>
-            <h2>{{ review.title }} - {{ review.rating }}/10</h2>
-            <p>Author: {{ review.reviewer }}</p>
-            <p>{{ review.review_text }}</p>
-            <p>Submitted on: {{ review.submission }}</p>
-            <br>
-        </div>
-    {% empty %}
-        <p>No reviews submitted yet.</p>
-    {% endfor %}
-</body>
-</html>
+{% extends "review/base.html" %}
+
+{% block title %}Review Submitted{% endblock %}
+
+{% block content %}
+<h1>Review Submitted!</h1>
+
+<div>
+    <h2>{{ review.title }} - {{ review.rating }}/10</h2>
+    <p>Author: {{ review.reviewer }}</p>
+    <p>{{ review.review_text }}</p>
+    <p>Submitted on: {{ review.submission }}</p>
+</div>
+
+<p><a href="{% url 'home' %}">Return to all reviews</a></p>
+{% endblock %}
