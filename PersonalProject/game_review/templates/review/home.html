@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="{% static 'game_review.css' %}">
 </head>
 <body>
+
+   <main>
+      {% block content %}{% endblock %}
+   </main>
      <div id="content">
-
         <!-- Adding image for flare-possibly change later -->
-        <img src="{% static 'imgs/mage.jpg' %}" alt="Mage" width="1200px"> <!--Playing around with header imgs-->
+        <img src="{% static 'imgs/mage.jpg' %}" alt="Mage" width="800px"> <!--Playing around with header imgs-->
          <p>Image to get attention</p>
-
-        {% block content %}
-        {% endblock %}
      </div>
 
      <div id="sidebar">

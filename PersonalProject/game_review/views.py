@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, review
 from .models import GameReview
 from .forms import GameReviewForm
 
@@ -12,7 +12,8 @@ def add_review(request):
         form = GameReviewForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            
+            return render(request, "review/review_result.html", {"review": review})
     else:
         form = GameReviewForm()
     return render(request, "add_review/add_review.html", {"form": form})
