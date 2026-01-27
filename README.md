@@ -3,3 +3,5 @@
 ## Project Overview
 1/18/26 - This project is going to be a game rating submission site that allows a user to input games and rate them.
 Finished basic setup for Django and worked on adding an add_review.html page as well as a review_list.html page for website viewing. Next step to add home page that both can be viewed on.
+
+1/27/26 - Made major changes to the layout of the site where it displays a home page as well as the submit review form. added navigation between the pages. Need to tweak a little more into it.

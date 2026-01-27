@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+#URL routing
 urlpatterns = [
     path("", views.review_list, name="home"),
     path("add/", views.add_review, name="add_review"),
