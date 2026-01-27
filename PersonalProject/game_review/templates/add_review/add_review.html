@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Submit Review</h1>
-
+<!-- using django form for review submission -->
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
