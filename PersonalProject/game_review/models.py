@@ -20,4 +20,4 @@ class GameReview(models.Model):
         ] #Database index
 
     def __str__(self):
-        return self.title, self.reviewer, self.rating, self.review_text, self.submission
+        return f"{self.title} | {self.reviewer} | {self.rating}"
