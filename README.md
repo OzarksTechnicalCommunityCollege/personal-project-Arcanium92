@@ -5,3 +5,8 @@
 Finished basic setup for Django and worked on adding an add_review.html page as well as a review_list.html page for website viewing. Next step to add home page that both can be viewed on.
 
 1/27/26 - Made major changes to the layout of the site where it displays a home page as well as the submit review form. added navigation between the pages. Need to tweak a little more into it.
+
+2/4/26 - Week 3 submission.
+Updated settings to connect to Postgresql database that I created.
+Added a search feature for the admin site to look through review submissions.
+Saved the data into a JSON file labeled 'personalproject_data.json
