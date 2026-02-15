@@ -4,29 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Home Page{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'game_review.css' %}">
+    <title>{% block title %}Game Reviews{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'game_review/style.css' %}">
 </head>
+
 <body>
-    <!-- navigation bar to toggle between add review and home page -->
-    <nav>
-        <a href="{% url 'home' %}">Home</a> |
-        <a href="{% url 'add_review' %}">Add a Review</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="{% url 'home' %}" class="nav-logo">Game Reviews</a>
+        </div>
+        <div class="nav-right">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'add_review' %}">Add Review</a>
+            <a href="{% url 'review_list' %}">All Reviews</a>
+        </div>
     </nav>
 
-    <main>
+    <!-- Hero Image -->
+    <header class="hero">
+        <img src="{% static 'imgs/mage.jpg' %}" alt="Mage">
+        <div class="hero-text">Share Game Reviews</div>
+    </header>
+
+    <main class="container">
         {% block content %}{% endblock %}
     </main>
-
-    <div id="content">
-        <img src="{% static 'imgs/mage.jpg' %}" alt="Mage" width="800px">
-        <p>Image to get attention</p>
-    </div>
-
-    <div id="sidebar">
-        <h2>Game Reviews</h2>
-        <p>Review your favorite games and see what others think of them!</p>
-    </div>
 
 </body>
 </html>

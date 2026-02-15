@@ -3,6 +3,9 @@ from .models import GameReview
 from .forms import GameReviewForm
 from django.core.paginator import Paginator
 
+def home(request):
+    return render(request, "review/home.html")
+
 def review_list(request):
     reviews = GameReview.objects.all().order_by('-submission')
 
@@ -10,7 +13,7 @@ def review_list(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, "review/home.html", {"page_obj": page_obj})
+    return render(request, "review/review_list.html", {"page_obj": page_obj})
 
 def add_review(request):
     if request.method == "POST":

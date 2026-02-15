@@ -1,16 +1,17 @@
 {% extends "review/base.html" %}
-
-{% block title %}Review Submitted{% endblock %}
+{% load static %}
 
 {% block content %}
-<h1>Review Submitted!</h1>
+<h1>Game Reviews</h1>
 
-<div>
-    <h2>{{ review.title }} - {{ review.rating }}/10</h2>
-    <p>Author: {{ review.reviewer }}</p>
-    <p>{{ review.review_text }}</p>
-    <p>Submitted on: {{ review.submission }}</p>
-</div>
+{% for review in page_obj %}
+    <div>
+        <h2>{{ review.title }} - {{ review.rating }}/10</h2>
+        <p>{{ review.review_text }}</p>
+    </div>
+{% empty %}
+    <p>No reviews yet.</p>
+{% endfor %}
 
-<p><a href="{% url 'home' %}">Return to all reviews</a></p>
+{% include "review/pagination.html" with page=page_obj %}
 {% endblock %}
