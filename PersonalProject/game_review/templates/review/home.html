@@ -4,14 +4,22 @@
 {% block content %}
 <h1>Game Reviews</h1>
 
-{% for review in page_obj %}
+
+<div>
+    <p>
+        We wanted to create a space for gamers, by gamers, to visit so they can give input and view another's about games they have played.
+        To find new games or try and save people the time and money of a disappointment, this can be your videogame haven.
+    </p>
+</div>
+
+<!-- {% for review in page_obj %}
     <div>
         <h2>{{ review.title }} - {{ review.rating }}/10</h2>
         <p>{{ review.review_text }}</p>
     </div>
 {% empty %}
     <p>No reviews yet.</p>
-{% endfor %}
+{% endfor %} -->
 <!-- pagination to go between submitted reviews -->
-{% include "review/pagination.html" with page=page_obj %}
-{% endblock %}
+<!-- {% include "review/pagination.html" with page=page_obj %}
+{% endblock %} -->
