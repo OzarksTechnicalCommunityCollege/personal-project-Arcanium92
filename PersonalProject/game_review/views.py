@@ -3,6 +3,10 @@ from .models import GameReview
 from .forms import GameReviewForm
 from django.core.paginator import Paginator
 
+# Adding decorators for user login
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+
 def home(request):
     return render(request, "review/home.html")
 
@@ -28,3 +32,10 @@ def add_review(request):
 def review_result(request, pk):
     review = GameReview.objects.get(pk=pk)
     return render(request, "review/review_result.html", {"review": review})
+
+# Login request
+@login_required
+def dashboard(request):
+    return render(
+        request, 'account/dashboard.html', {'section': 'dashboard'}
+    )

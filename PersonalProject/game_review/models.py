@@ -21,3 +21,18 @@ class GameReview(models.Model):
 
     def __str__(self):
         return f"{self.title} | {self.reviewer} | {self.rating}"
+
+
+#Create user profile model
+class Profile(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    date_of_birth = models.DateField(blank=True, null=True)
+    photo = models.ImageField(
+        upload_to='users/%y/%m/%d',
+        blank=True
+    )
+    def __str__(self):
+        return f'Profile of {self.user.username}'
