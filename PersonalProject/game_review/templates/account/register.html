@@ -1,0 +1,16 @@
+{% extends "review/base.html" %}
+{% load static %}
+{% block content %}
+<h2>Create an Account</h2>
+
+<!-- registration form -->
+<form method="POST">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+
+    <button type="submit">Register</button>
+</form>
+
+<p>Already have an account?</p>
+<a href="{% url 'login' %}">Go to login</a>
+{% endblock %}

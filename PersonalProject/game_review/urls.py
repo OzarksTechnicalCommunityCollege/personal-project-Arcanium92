@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from django.contrib.auth import views as AuthViews
 from . import views
 
@@ -10,6 +10,12 @@ urlpatterns = [
     path("result/<int:pk>/", views.review_result, name="review_result"),
 
     #Login and logout view
+    path('', include('django.contrib.auth.urls')),
+
+    # Check about moving to PersonalProject/urls.py
     path('login/', AuthViews.LoginView.as_view(), name='login'),
     path('logout/', AuthViews.LogoutView.as_view(), name='logout'),
+    
+    #Registration
+    path('register/', views.register, name='register'),
 ]
