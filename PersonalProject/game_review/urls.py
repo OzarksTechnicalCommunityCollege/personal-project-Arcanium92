@@ -11,8 +11,6 @@ urlpatterns = [
 
     #Login and logout view
     path('', include('django.contrib.auth.urls')),
-
-    # Check about moving to PersonalProject/urls.py
     path('login/', AuthViews.LoginView.as_view(), name='login'),
     path('logout/', AuthViews.LogoutView.as_view(), name='logout'),
     

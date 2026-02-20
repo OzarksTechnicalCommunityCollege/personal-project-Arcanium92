@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import GameReview
 from .forms import GameReviewForm, UserRegistrationForm
+from .forms import LoginForm, UserRegistrationForm
+
 from django.core.paginator import Paginator
 
 # Adding decorators for user login
@@ -15,7 +17,7 @@ def home(request):
 def review_list(request):
     reviews = GameReview.objects.all().order_by('-submission')
 
-    paginator = Paginator(reviews, 3)  # 3 reviews per page
+    paginator = Paginator(reviews, 5)  # 3 reviews per page
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
@@ -41,33 +43,31 @@ def register(request):
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
 
-            # Create new user object
+            # Creates new user object
             new_user = user_form.save(commit=False)
 
-            # Set Password
-            new_user.set_password(
-                user_form.cleaned_data['password']
-            )
+            # Set password
+            new_user.set_password(user_form.cleaned_data['password'])
 
             # Save user
             new_user.save()
 
-            # Automatically log the user in after registration
             user = authenticate(
                 username=new_user.username,
                 password=user_form.cleaned_data['password']
             )
             login(request, user)
 
-            # Redirect to review after account creation
-            return redirect('home.html')
+            return redirect('home')
 
     else:
         user_form = UserRegistrationForm()
 
-    # Render registration page
-    return render(request, 'account/register.html', {'user_form': user_form})
-
+    return render(
+        request,
+        'registration/register.html',
+        {'user_form': user_form}
+    )
 
 def review_result(request, pk):
     review = GameReview.objects.get(pk=pk)

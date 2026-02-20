@@ -1,104 +1,68 @@
-body { 
-    margin:0;
-    padding:0;
-    font-family:helvetica, sans-serif;
-    background: fixed;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, sans-serif;
     background-color: gray;
 }
 
-a { 
-    color:#00ffdd;
-    text-decoration:none; 
+a {
+    color: #00ffdd;
+    text-decoration: none;
 }
 
-h1 { 
-    font-weight:normal;
-    border-bottom:1px solid #bbb;
-    padding:0 0 10px 0;
+h1 {
+    font-weight: normal;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 10px;
 }
 
 h2 {
-    font-weight:normal;
-    margin:30px 0 0;
+    font-weight: normal;
+    margin-top: 30px;
 }
 
-#content { 
-    float:left;
-    width:60%;
-    padding:0 0 0 30px; 
+/* PAGE LAYOUT */
+#content {
+    width: 60%;
+    padding-left: 30px;
 }
 
-#sidebar { 
-    float:right;
-    width:30%;
-    padding:10px;
-    background:#efefef; 
-    height:100%;
+#sidebar {
+    width: 30%;
+    padding: 10px;
+    background: #efefef;
 }
 
-p.date { 
-    color:#ccc;
+/* DATE TEXT */
+p.date {
+    color: #ccc;
     font-family: georgia, serif;
     font-size: 12px;
-    font-style: italic; 
+    font-style: italic;
 }
 
-.left {
-    float:left;
-    margin-right:10px;
+/* PAGINATION */
+.pagination {
+    margin: 40px 0;
+    font-weight: bold;
 }
 
-/* pagination */
-.pagination { 
-    margin:40px 0; 
-    font-weight:bold;
-}
-
-/* forms */
-label { 
-    float:left;
-    clear:both;
-    color:#333;
-    margin-bottom:4px; 
-}
-input, textarea { 
-    clear:both;
-    float:left;
-    margin:0 0 10px;
-    background:#ededed;
-    border:0;
-    padding:6px 10px;
-    font-size:12px;
-}
-input[type=submit] {
-    font-weight:bold;
-    background:#00abff;
-    color:#fff;
-    padding:10px 20px;
-    font-size:14px;
-    text-transform:uppercase; 
-}
-.errorlist { 
-    color:#cc0033;
-    float:left;
-    clear:both;
-    padding-left:10px; 
-}
-
-/* comments */
+/* COMMENTS */
 .comment {
-    padding:10px;
-}
-.comment:nth-child(even) {
-    background:#efefef;
-}
-.comment .info {
-    font-weight:bold;
-    font-size:12px;
-    color:#666;
+    padding: 10px;
 }
 
-/* Image control section */
+.comment:nth-child(even) {
+    background: #efefef;
+}
+
+.comment .info {
+    font-weight: bold;
+    font-size: 12px;
+    color: #666;
+}
+
+/* HERO SECTION */
 .hero {
     background: green;
     height: 500px;
@@ -122,7 +86,7 @@ input[type=submit] {
     color: #fff;
 }
 
-/* form improvements */
+/* form style settings */
 .review-form {
     background-color: #1a1a1a;
     padding: 2rem;
@@ -138,7 +102,6 @@ input[type=submit] {
 .review-form label {
     color: #ccc;
     font-size: 0.9rem;
-    margin-bottom: 0.2rem;
 }
 
 .review-form input,
@@ -158,7 +121,6 @@ input[type=submit] {
 }
 
 .review-form .btn {
-    align-self: flex-start;
     background-color: #00abff;
     color: #fff;
     padding: 10px 20px;
