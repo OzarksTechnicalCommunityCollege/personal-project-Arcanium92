@@ -12,6 +12,8 @@ class GameReviewForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+    
 # Registration form
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(
