@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import GameReview
 from .forms import GameReviewForm, UserRegistrationForm
-from .forms import LoginForm, UserRegistrationForm
-
 from django.core.paginator import Paginator
 
 # Adding decorators for user login

@@ -130,7 +130,7 @@ STATIC_URL = '/PersonalProject/game_review/style.css/'
 
 # User authentication
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'logout'
 LOGIN_URL = 'login'
 
 # Default primary key field type

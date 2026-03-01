@@ -21,8 +21,7 @@ from django.contrib.auth import views as AuthViews
 urlpatterns = [
     path("", include("game_review.urls")),
     path("admin/", admin.site.urls),
-
     path('login/', AuthViews.LoginView.as_view(), name='login'),
     path('logout/', AuthViews.LogoutView.as_view(), name='logout'),
-
+    # path('review/', include(django.contrib.auth.urls))
 ]
