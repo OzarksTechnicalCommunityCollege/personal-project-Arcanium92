@@ -1,0 +1,9 @@
+{% extends "review/base.html" %}
+{% load static %}
+
+{% block content %}
+{% block title %}Logged out{% endblock %}
+<div class="auth-container">  
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+{% endblock %}
