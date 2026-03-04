@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, "review/home.html")
 
+def logout(request):
+    return render(request, "registration/logged_out.html")
 
 def review_list(request):
     reviews = GameReview.objects.all().order_by('-submission')
