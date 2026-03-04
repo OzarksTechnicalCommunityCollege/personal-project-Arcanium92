@@ -126,7 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/PersonalProject/game_review/style.css/'
+STATIC_URL = '/static/'
 
 # User authentication
 LOGIN_REDIRECT_URL = 'home'
