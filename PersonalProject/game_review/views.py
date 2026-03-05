@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, "review/home.html")
 
-def logout(request):
+def logged_out(request):
     return render(request, "registration/logged_out.html")
 
 def review_list(request):
