@@ -3,6 +3,7 @@ from django.db.models import Prefetch
 from .models import GameReview, ReviewLike
 from .forms import GameReviewForm, UserRegistrationForm
 from django.core.paginator import Paginator
+from django.core.cache import cache
 
 # Adding decorators for user login
 from django.contrib.auth import authenticate, login
@@ -15,15 +16,19 @@ def home(request):
 def logged_out(request):
     return render(request, "registration/logged_out.html")
 
+# Combined version to prefetch likes and keeps ordering and pagination
 def review_list(request):
-    reviews = GameReview.objects.all().order_by('-submission')
+    like_qs = ReviewLike.objects.select_related('user')
 
-    paginator = Paginator(reviews, 5)  # 3 reviews per page
+    reviews = GameReview.objects.all().prefetch_related(
+        Prefetch('likes', queryset=like_qs)
+    ).order_by('-submission')
+
+    paginator = Paginator(reviews, 5)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
     return render(request, "review/review_list.html", {"page_obj": page_obj})
-
 
 # Make login required for add_review page
 @login_required
@@ -74,10 +79,17 @@ def review_result(request, pk):
     review = GameReview.objects.get(pk=pk)
     return render(request, "review/review_result.html", {"review": review})
 
-# View to load likes
-def review_list(request):
-    like_qs = ReviewLike.objects.select_related('user')
-    reviews = GameReview.objects.prefetch_related(
-        Prefetch('likes', queryset= like_qs)
-    )
-    return render(request, 'review/review_list.html', {'reviews': reviews})
+# function to cache likes
+def review_detail(request, review_id):
+    key = f"review:{review_id}:like_count"
+    like_count = cache.get(key)
+
+    if like_count is None:
+        review = GameReview.objects.get(id=review_id)
+        like_count = review.like_count
+        cache.set(key, like_count, 30)
+
+    return render(request, "review/detail.html", {
+        "review": review,
+        "like_count": like_count
+    })
