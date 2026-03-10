@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import GameReview
+from django.db.models import Prefetch
+from .models import GameReview, ReviewLike
 from .forms import GameReviewForm, UserRegistrationForm
 from django.core.paginator import Paginator
 
@@ -72,3 +73,11 @@ def register(request):
 def review_result(request, pk):
     review = GameReview.objects.get(pk=pk)
     return render(request, "review/review_result.html", {"review": review})
+
+# View to load likes
+def review_list(request):
+    like_qs = ReviewLike.objects.select_related('user')
+    reviews = GameReview.objects.prefetch_related(
+        Prefetch('likes', queryset= like_qs)
+    )
+    return render(request, 'review/review_list.html', {'reviews': reviews})
