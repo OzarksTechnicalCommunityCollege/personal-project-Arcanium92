@@ -12,6 +12,12 @@ class GameReview(models.Model):
     submission = models.DateTimeField(db_default=Now())
     created = models.DateTimeField(auto_now_add=True) #Stores date and time post was created
     updated = models.DateTimeField(auto_now_add=True) #Stores time and date post was updated
+    # Module 6 ManyToMany requirement
+    liked_by = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        through= "ReviewLike",
+        related_name= 'review_likes'
+    )
 
     class Meta:
         ordering = ['-created'] #Meta class for sort order
