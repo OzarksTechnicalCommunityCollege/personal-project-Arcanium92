@@ -36,3 +36,34 @@ class Profile(models.Model):
     )
     def __str__(self):
         return f'Profile of {self.user.username}'
+    
+# Database model - custom table
+class Game(models.Model):
+    title = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.title
+    
+# Added model for like reaction to views
+class ReviewLike(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name= "liked_reviews",
+        on_delete = models.CASCADE
+    )
+    review = models.ForeignKey(
+        GameReview,
+        related_name= "likes",
+        on_delete = models.CASCADE
+    )
+
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'review')
+        indexes = [
+            models.Index(fields=['created'])
+        ]
+
+    def __str__(self):
+        return f"{self.user} liked {self.review}"
