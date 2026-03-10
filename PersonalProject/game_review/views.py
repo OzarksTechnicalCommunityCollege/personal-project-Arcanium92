@@ -29,6 +29,10 @@ def review_list(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+    # Attach current user to each review
+    for review in page_obj:
+        review.current_user = request.user
+
     return render(request, "review/review_list.html", {"page_obj": page_obj})
 
 # Make login required for add_review page

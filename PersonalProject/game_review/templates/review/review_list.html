@@ -13,12 +13,11 @@
         <p>Likes: {{ review.like_count }}</p>
         {% comment %} Like/Unlike button {% endcomment %}
         {% if user.is_authenticated %}
-            {% if review.user_has_liked(user) %}
-                <a href= "{% url 'toggle_like' review.id %}" class= "btn btn-secondary">Unlike</a>
+            {% if review.user_has_liked %}
+                <a href="{% url 'toggle_like' review.id %}" class="btn btn-secondary">Unlike</a>
             {% else %}
-                <a href= "{% url 'toggle_like' review.id %}" class= "btn btn-primary">Like</a>
-            {% endif %}
-        {% else %}
+                <a href="{% url 'toggle_like' review.id %}" class="btn btn-primary">Like</a>
+            {% endif %}        {% else %}
             <p><em>Login to like this review.</em></p>
         {% endif %}
     </div>

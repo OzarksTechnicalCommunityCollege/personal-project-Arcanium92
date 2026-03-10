@@ -10,25 +10,28 @@ class GameReview(models.Model):
     rating = models.IntegerField()
     review_text = models.TextField()
     submission = models.DateTimeField(db_default=Now())
-    created = models.DateTimeField(auto_now_add=True) #Stores date and time post was created
-    updated = models.DateTimeField(auto_now_add=True) #Stores time and date post was updated
-    # Module 6 ManyToMany requirement
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
     liked_by = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
-        through= "ReviewLike",
-        related_name= 'review_likes'
+        through="ReviewLike",
+        related_name="review_likes"
     )
-    like_count = models.PositiveIntegerField(default= 0)
+
+    like_count = models.PositiveIntegerField(default=1)
 
     class Meta:
-        ordering = ['-created'] #Meta class for sort order
+        ordering = ['-created']
         indexes = [
             models.Index(fields=['-created']),
-        ] #Database index
+        ]
 
     def __str__(self):
         return f"{self.title} | {self.reviewer} | {self.rating}"
 
+    @property
+    def user_has_liked(self):
+        return self.likes.filter(user=self.current_user).exists()
 
 #Create user profile model
 class Profile(models.Model):
