@@ -7,5 +7,6 @@ urlpatterns = [
     path("add/", views.add_review, name="add_review"),
     path("result/<int:pk>/", views.review_result, name="review_result"),
     path("register/", views.register, name="register"),
-    path("registration/", views.logged_out, name="logged_out")
+    path("registration/", views.logged_out, name="logged_out"),
+    path("like/<int:review_id>/", views.toggle_like, name="toggle_like"),
 ]
