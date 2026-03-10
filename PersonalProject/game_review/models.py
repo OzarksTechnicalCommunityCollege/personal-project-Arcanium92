@@ -18,7 +18,7 @@ class GameReview(models.Model):
         related_name="review_likes"
     )
 
-    like_count = models.PositiveIntegerField(default=1)
+    like_count = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['-created']
