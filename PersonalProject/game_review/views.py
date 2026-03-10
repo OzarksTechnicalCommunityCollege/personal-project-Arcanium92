@@ -3,6 +3,7 @@ from django.db.models import Prefetch
 from .models import GameReview, ReviewLike
 from .forms import GameReviewForm, UserRegistrationForm
 from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404
 from django.core.cache import cache
 
 # Adding decorators for user login
@@ -93,3 +94,16 @@ def review_detail(request, review_id):
         "review": review,
         "like_count": like_count
     })
+
+# Toggle like/unlike view
+@login_required
+def toggle_like(request, review_id):
+    review = get_object_or_404(GameReview, id= review_id)
+    user = request.user
+    existing_like = ReviewLike.objects.filter(user=user, review=review).first()
+    
+    if existing_like:
+        existing_like.delete()
+    else:
+        ReviewLike.objects.create(user=user, review=review)
+    return redirect('review_list')
