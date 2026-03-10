@@ -18,6 +18,7 @@ class GameReview(models.Model):
         through= "ReviewLike",
         related_name= 'review_likes'
     )
+    like_count = models.PositiveIntegerField(default= 0)
 
     class Meta:
         ordering = ['-created'] #Meta class for sort order
