@@ -48,11 +48,11 @@ class Profile(models.Model):
         return f'Profile of {self.user.username}'
     
 # Database model - custom table
-class Game(models.Model):
-    title = models.CharField(max_length=250)
+# class Game(models.Model):
+#     title = models.CharField(max_length=250)
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
     
 # Added model for like reaction to views
 class ReviewLike(models.Model):
@@ -77,3 +77,39 @@ class ReviewLike(models.Model):
 
     def __str__(self):
         return f"{self.user} liked {self.review}"
+    
+# Game genres for review
+class Game(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
+    class Meta:
+        ordering = ['name']
+        indexes = [
+            models.Index(fields=['name']),
+        ]
+        verbose_name = 'game'
+        verbose_name_plural = 'games'
+    def __str__(self):
+        return self.name
+class Genre(models.Model):
+    game = models.ForeignKey(
+        Game,
+        related_name='genre',
+        on_delete=models.CASCADE
+    )
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100)
+    image = models.ImageField(
+        upload_to='genre/%Y/%m/%d',
+        blank=True
+    )
+    description = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    class Meta:
+        ordering = ['name']
+        indexes = [
+            models.Index(fields=['id', 'slug']),
+            models.Index(fields=['name']),
+        ]
+    def __str__(self):
+        return self.name
