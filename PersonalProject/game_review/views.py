@@ -17,23 +17,51 @@ def home(request):
 def logged_out(request):
     return render(request, "registration/logged_out.html")
 
-# Combined version to prefetch likes and keeps ordering and pagination
-def review_list(request):
+# Breaking down functions to easier to follow functions
+def get_reviews_with_likes():
     like_qs = ReviewLike.objects.select_related('user')
-
-    reviews = GameReview.objects.all().prefetch_related(
+    return GameReview.objects.all().prefetch_related(
         Prefetch('likes', queryset=like_qs)
     ).order_by('-submission')
 
-    paginator = Paginator(reviews, 5)
+# Pagination view
+def paginate_queryset(request, queryset, per_page=5):
+    paginator = Paginator(queryset, per_page)
     page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+    return paginator.get_page(page_number)
 
-    # Attach current user to each review
+# Reworked current_user view 
+def attach_current_user(page_obj, user):
     for review in page_obj:
-        review.current_user = request.user
+        review.current_user = user
+    return page_obj
 
+# Reworked review_list view
+def review_list(request):
+    reviews = get_reviews_with_likes()
+    page_obj = paginate_queryset(request, reviews)
+    page_obj = attach_current_user(page_obj, request.user)
     return render(request, "review/review_list.html", {"page_obj": page_obj})
+
+
+# ----- Changing the view to meet the first goal by breaking down complex functions into a managable function
+# Combined version to prefetch likes and keeps ordering and pagination
+# def review_list(request):
+#     like_qs = ReviewLike.objects.select_related('user')
+
+#     reviews = GameReview.objects.all().prefetch_related(
+#         Prefetch('likes', queryset=like_qs)
+#     ).order_by('-submission')
+
+#     paginator = Paginator(reviews, 5)
+#     page_number = request.GET.get("page")
+#     page_obj = paginator.get_page(page_number)
+
+#     # Attach current user to each review
+#     for review in page_obj:
+#         review.current_user = request.user
+
+#     return render(request, "review/review_list.html", {"page_obj": page_obj})
 
 # Make login required for add_review page
 @login_required
