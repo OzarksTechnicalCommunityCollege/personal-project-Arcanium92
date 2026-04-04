@@ -43,7 +43,6 @@ def review_list(request):
     page_obj = attach_current_user(page_obj, request.user)
     return render(request, "review/review_list.html", {"page_obj": page_obj})
 
-
 # ----- Changing the view to meet the first goal by breaking down complex functions into a managable function
 # Combined version to prefetch likes and keeps ordering and pagination
 # def review_list(request):
@@ -114,11 +113,11 @@ def review_result(request, pk):
 
 # function to cache likes
 def review_detail(request, review_id):
+    review = get_object_or_404(GameReview, id=review)
     key = f"review:{review_id}:like_count"
     like_count = cache.get(key)
 
     if like_count is None:
-        review = GameReview.objects.get(id=review_id)
         like_count = review.like_count
         cache.set(key, like_count, 30)
 

@@ -11,7 +11,7 @@ class GameReview(models.Model):
     review_text = models.TextField()
     submission = models.DateTimeField(db_default=Now())
     created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     liked_by = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         through="ReviewLike",
