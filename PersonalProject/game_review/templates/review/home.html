@@ -11,4 +11,19 @@
     </p>
 </div>
 
+{% if recently_viewed %}
+<hr>
+<h2>Recently Viewed Reviews</h2>
+
+<ul>
+    {% for review in recently_viewed %}
+        <li>
+            <a href="{% url 'review_detail' review.id %}">
+                {{ review.title }} — {{ review.rating }}/10
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 {% endblock %}

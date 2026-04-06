@@ -12,7 +12,11 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-    return render(request, "review/home.html")
+    viewed_ids = request.session.get('viewed_reviews', [])
+    recently_viewed = GameReview.objects.filter(id__in=viewed_ids)
+    return render(request, "review/home.html", {
+        "recently_viewed": recently_viewed
+    })
 
 def logged_out(request):
     return render(request, "registration/logged_out.html")
@@ -65,15 +69,27 @@ def review_list(request):
 # Make login required for add_review page
 @login_required
 def add_review(request):
+    last_rating = request.COOKIES.get('last_rating')
+
     if request.method == "POST":
         form = GameReviewForm(request.POST)
         if form.is_valid():
             review = form.save()
-            return redirect("review_result", pk=review.pk)
-    else:
-        form = GameReviewForm()
-    return render(request, "add_review/add_review.html", {"form": form})
 
+            response = redirect("review_result", pk=review.pk)
+
+            # Save rating submission in a cookie for 5 days
+            response.set_cookie(
+                'last_rating',
+                review.rating,
+                max_age=60*60*24*5
+            )
+
+            return response
+    else:
+        form = GameReviewForm(initial={'rating': last_rating})
+
+    return render(request, "add_review/add_review.html", {"form": form})
 
 # Account registration function
 def register(request):
@@ -114,17 +130,29 @@ def review_result(request, pk):
 # function to cache likes
 def review_detail(request, review_id):
     review = get_object_or_404(GameReview, id=review)
+    #Track recently viewed reviews
+    viewed = request.session.get('viewed_reviews', [])
+
+    if review_id not in viewed:
+        viewed.append(review_id)
+
+    request.session['viewed_reviews'] = viewed
+    # -------------------------------------
+
+    # --- Cache Logic ---
     key = f"review:{review_id}:like_count"
     like_count = cache.get(key)
 
     if like_count is None:
         like_count = review.like_count
         cache.set(key, like_count, 30)
+    # -----------------------------------
 
     return render(request, "review/detail.html", {
         "review": review,
         "like_count": like_count
     })
+
 
 # Toggle like/unlike view
 @login_required
