@@ -18,7 +18,9 @@ def home(request):
         "recently_viewed": recently_viewed
     })
 
+@login_required
 def logged_out(request):
+    logged_out(request)
     return render(request, "registration/logged_out.html")
 
 # Breaking down functions to easier to follow functions
@@ -129,7 +131,7 @@ def review_result(request, pk):
 
 # function to cache likes
 def review_detail(request, review_id):
-    review = get_object_or_404(GameReview, id=review)
+    review = get_object_or_404(GameReview, id=review_id)
     #Track recently viewed reviews
     viewed = request.session.get('viewed_reviews', [])
 
@@ -137,7 +139,6 @@ def review_detail(request, review_id):
         viewed.append(review_id)
 
     request.session['viewed_reviews'] = viewed
-    # -------------------------------------
 
     # --- Cache Logic ---
     key = f"review:{review_id}:like_count"
@@ -146,7 +147,6 @@ def review_detail(request, review_id):
     if like_count is None:
         like_count = review.like_count
         cache.set(key, like_count, 30)
-    # -----------------------------------
 
     return render(request, "review/detail.html", {
         "review": review,

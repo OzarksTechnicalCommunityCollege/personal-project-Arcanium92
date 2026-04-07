@@ -5,6 +5,10 @@
 <div class="auth-container">
     <h2 class="auth-title">Logout</h2>
 
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+    </form>
     <p class="auth-text">You have been successfully logged out.</p>
     <a href="{% url 'home' %}">Return Home</a>
 </div>
