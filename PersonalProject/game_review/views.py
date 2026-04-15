@@ -181,7 +181,7 @@ class GameReviewSets(viewsets.ModelViewSet):
 
 # View for PokeAPI data soon to be tied to button on home.html
 def random_pokemon(request):
-    pokemon_id = random.randint(1, 898)
+    pokemon_id = random.randint(1, 151)
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
 
     response = requests.get(url).json()  # <-- MUST be requests.get, not request.get
