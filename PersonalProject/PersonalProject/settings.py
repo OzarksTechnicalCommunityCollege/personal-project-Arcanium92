@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'game_review.apps.GameReviewConfig', #create database tables for game_review models
     'debug_toolbar',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

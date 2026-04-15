@@ -1,7 +1,16 @@
 {% extends "review/base.html" %}
 {% load static %}
 
+
+{% block title %}Logged out{% endblock %}
 {% block content %}
+
+Logged out
+You have been successfully logged out. You can log-in again.
+
+{% endblock %}
+
+{% comment %} {% block content %}
 <div class="auth-container">
     <h2 class="auth-title">Logout</h2>
 
@@ -12,4 +21,4 @@
     <p class="auth-text">You have been successfully logged out.</p>
     <a href="{% url 'home' %}">Return Home</a>
 </div>
-{% endblock %}
+{% endblock %} {% endcomment %}
