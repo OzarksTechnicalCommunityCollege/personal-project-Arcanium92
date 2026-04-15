@@ -22,6 +22,7 @@ urlpatterns = [
     path("", include("game_review.urls")),
     path("registration/", include("django.contrib.auth.urls")),
     path("admin/", admin.site.urls),
+    path("api/", include("game_review.api_urls")),
 ]
 
 if settings.DEBUG:
