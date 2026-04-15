@@ -8,6 +8,11 @@ from django.shortcuts import get_object_or_404
 from django.core.cache import cache
 from rest_framework import viewsets
 
+# Adding these for API responses
+import requests
+import random
+from django.http import JsonResponse
+
 # Adding decorators for user login
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -173,3 +178,19 @@ def toggle_like(request, review_id):
 class GameReviewSets(viewsets.ModelViewSet):
     queryset = GameReview.objects.all()
     serializer_class = GameReviewSerializer
+
+# View for PokeAPI data soon to be tied to button on home.html
+def random_pokemon(requests):
+    pokemon_id = random.randit(1, 898)
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
+    response = requests.get(url).json()
+
+    data = {
+        "name": response["name"].title(),
+        "sprite": response["sprites"]["front_default"],
+        "hp": response["stats"][0]["base_stat"],
+        "attack": response["stats"][1]["base_stat"],
+        "defense": response["stats"][2]["base_stat"],
+    }
+
+    return JsonResponse(data)
