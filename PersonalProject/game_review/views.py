@@ -180,10 +180,11 @@ class GameReviewSets(viewsets.ModelViewSet):
     serializer_class = GameReviewSerializer
 
 # View for PokeAPI data soon to be tied to button on home.html
-def random_pokemon(requests):
-    pokemon_id = random.randit(1, 898)
+def random_pokemon(request):
+    pokemon_id = random.randint(1, 898)
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
-    response = requests.get(url).json()
+
+    response = requests.get(url).json()  # <-- MUST be requests.get, not request.get
 
     data = {
         "name": response["name"].title(),

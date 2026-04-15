@@ -11,6 +11,32 @@
     </p>
 </div>
 
+{% comment %} API event from PokeAPI {% endcomment %}
+<button id="poke-btn" class="btn btn-primary" type="button">Show Random Pokemon with Stats</button>
+
+<div id="poke-result" style="margin-top: 20px;"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("poke-btn").addEventListener("click", async () => {
+    const res = await fetch("/pokemon/random/");
+    const data = await res.json();
+
+    document.getElementById("poke-result").innerHTML = `
+        <div style="text-align:center;">
+            <h2>${data.name}</h2>
+            <img src="${data.sprite}" alt="${data.name}">
+            <p><strong>HP:</strong> ${data.hp}</p>
+            <p><strong>Attack:</strong> ${data.attack}</p>
+            <p><strong>Defense:</strong> ${data.defense}</p>
+        </div>
+        `;
+    });
+
+})
+</script>
+
+
 {% if recently_viewed %}
 <hr>
 <h2>Recently Viewed Reviews</h2>

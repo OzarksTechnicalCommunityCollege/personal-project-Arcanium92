@@ -10,4 +10,5 @@ urlpatterns = [
     path("logged_out/", views.logged_out, name="logged_out"),
     path("like/<int:review_id>/", views.toggle_like, name="toggle_like"),
     path("reviews/<int:review_id>/", views.review_detail, name="review_detail"),
+    path("pokemon/random/", views.random_pokemon, name="random_pokemon"),
 ]
