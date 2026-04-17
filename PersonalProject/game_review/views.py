@@ -9,8 +9,7 @@ from django.core.cache import cache
 from rest_framework import viewsets
 
 # Adding these for API responses
-import requests
-import random
+import random, requests
 from django.http import JsonResponse
 
 # Adding decorators for user login
