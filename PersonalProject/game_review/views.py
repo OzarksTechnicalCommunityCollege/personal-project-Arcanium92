@@ -184,7 +184,7 @@ def random_pokemon(request):
     pokemon_id = random.randint(1, 151)
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
 
-    response = requests.get(url).json()  # <-- MUST be requests.get, not request.get
+    response = requests.get(url).json()
 
     data = {
         "name": response["name"].title(),
