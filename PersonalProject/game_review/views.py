@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Prefetch
 from .models import GameReview, ReviewLike
 from .forms import GameReviewForm, UserRegistrationForm
 from .serializers import GameReviewSerializer
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404
 from django.core.cache import cache
 from rest_framework import viewsets
 
