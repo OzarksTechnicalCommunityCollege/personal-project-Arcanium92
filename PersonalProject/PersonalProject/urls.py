@@ -17,12 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
-from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path("", include("game_review.urls")),
-    path("registration/logout/", LogoutView.as_view(next_page="/"), name="logout"),
-    path("registration/", include("django.contrib.auth.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),  # only one auth include
     path("admin/", admin.site.urls),
     path("api/", include("game_review.api_urls")),
 ]

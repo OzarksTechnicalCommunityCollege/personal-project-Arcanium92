@@ -23,11 +23,6 @@ def home(request):
         "recently_viewed": recently_viewed
     })
 
-@login_required
-def logged_out(request):
-    logged_out(request)
-    return render(request, "registration/logged_out.html")
-
 # Breaking down functions to easier to follow functions
 def get_reviews_with_likes():
     like_qs = ReviewLike.objects.select_related('user')
