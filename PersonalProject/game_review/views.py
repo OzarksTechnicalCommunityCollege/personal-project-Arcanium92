@@ -49,7 +49,7 @@ def review_list(request):
     page_obj = attach_current_user(page_obj, request.user)
     return render(request, "review/review_list.html", {"page_obj": page_obj})
 
-# Make login required for add_review page
+# Make login required for add_review page and uses the form validation and saves the review
 @login_required
 def add_review(request):
     last_rating = request.COOKIES.get('last_rating')
@@ -106,6 +106,7 @@ def register(request):
         {'user_form': user_form}
     )
 
+# displays a list of all game reviews and pulls all of the objects from the database to the template
 def review_result(request, pk):
     review = GameReview.objects.get(pk=pk)
     return render(request, "review/review_result.html", {"review": review})
