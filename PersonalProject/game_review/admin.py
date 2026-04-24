@@ -1,7 +1,26 @@
 from django.contrib import admin
 from .models import GameReview, Game, Genre
+from django.http import HttpResponse
+import csv
 
-# Register your models here.
+
+@admin.action(description="Export selected reviews to CSV")
+def export_review_csv(modeladmin, request, queryset):
+    """ Custom admin action: Export selected objects as CSV file"""
+    response = HttpResponse(content_type='text/csv')
+    response ['Content-Disposition'] = 'attachment; filename="game_reviews.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Title', 'Reviewer', 'Rating', 'Submission Date'])
+
+    for review in queryset:
+        writer.writerow([
+            review.title,
+            review.reviewer,
+            review.rating,
+            review.submission
+        ])
+    return response
 
 # List view, filters and search bar for columns
 @admin.register(GameReview)
