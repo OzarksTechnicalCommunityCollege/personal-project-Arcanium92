@@ -49,25 +49,6 @@ def review_list(request):
     page_obj = attach_current_user(page_obj, request.user)
     return render(request, "review/review_list.html", {"page_obj": page_obj})
 
-# ----- Changing the view to meet the first goal by breaking down complex functions into a managable function
-# Combined version to prefetch likes and keeps ordering and pagination
-# def review_list(request):
-#     like_qs = ReviewLike.objects.select_related('user')
-
-#     reviews = GameReview.objects.all().prefetch_related(
-#         Prefetch('likes', queryset=like_qs)
-#     ).order_by('-submission')
-
-#     paginator = Paginator(reviews, 5)
-#     page_number = request.GET.get("page")
-#     page_obj = paginator.get_page(page_number)
-
-#     # Attach current user to each review
-#     for review in page_obj:
-#         review.current_user = request.user
-
-#     return render(request, "review/review_list.html", {"page_obj": page_obj})
-
 # Make login required for add_review page
 @login_required
 def add_review(request):

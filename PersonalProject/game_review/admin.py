@@ -6,7 +6,7 @@ import csv
 
 @admin.action(description="Export selected reviews to CSV")
 def export_review_csv(modeladmin, request, queryset):
-    """ Custom admin action: Export selected objects as CSV file"""
+    # Custom admin action: Export selected objects as CSV file
     response = HttpResponse(content_type='text/csv')
     response ['Content-Disposition'] = 'attachment; filename="game_reviews.csv"'
 
@@ -30,6 +30,7 @@ class GameReviewAdmin(admin.ModelAdmin):
     search_fields = ('title', 'reviewer', 'review_text')
     ordering = ('-created',)
     readonly_fields = ('created', 'updated', 'submission')
+    actions = [export_review_csv]
 
 # Game admin model
 @admin.register(Game)
