@@ -2,6 +2,42 @@
 {% load static %}
 
 {% block content %}
+
+    <!-- Hero Image -->
+    <!-- Going to add a JavaScript button to change the Hero Image to cycle between images in the static folder and use a click event listener to detect the action -->
+    <header class="hero">
+        <img id="cycle-image" src="{% static 'imgs/mage.jpg' %}" alt="Mage">
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // JavaScript array to cycle between images on button click
+                const images = [
+                    "{% static 'imgs/dark_angel.jpg' %}",
+                    "{% static 'imgs/artificer.jpg' %}",
+                    "{% static 'imgs/Archer.jpeg' %}",
+                    "{% static 'imgs/Necromancer.jpg' %}",
+                    "{% static 'imgs/Wolf1.png' %}",
+                ];
+
+                let index = 0;
+
+                const imgElement = document.getElementById("cycle-image");
+                const btn = document.getElementById("cycle-btn");
+
+                btn.addEventListener("click", function () {
+                    index = (index + 1) % images.length;
+                    imgElement.src = images[index];
+                });
+            });
+        </script>
+
+        <div class="hero-text">
+            <p>Welcome to our game haven!<br>View and submit reviews!</p>
+            <button id="cycle-btn" class="cycle-button">Next Image</button>
+        </div>
+    </header>
+
+
 <h1>Enter Your Game Reviews</h1>
 
 <div>
