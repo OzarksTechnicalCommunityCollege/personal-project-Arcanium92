@@ -46,6 +46,61 @@
     </p>
 </div>
 
+    <h1>Top Rated Games Bar-View</h1>
+    <canvas id="pieChart" width="400" height="400"></canvas>
+
+    <h1>Top Rated Games Pie-View</h1>
+    <canvas id="barChart" width="400" height="400"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        fetch('/chart/data-pie/')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(document.getElementById('pieChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Game Rate Score',
+                            data: data.values,
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        maintainAspectRatio: false
+                    }
+                });
+            });
+
+        fetch('/chart/data-bar/')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(document.getElementById('barChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Game Rate Score',
+                            data: data.values,
+                            backgroundColor: '#22c4d3'
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { min: 0, max: 10 }
+                        }
+                    }
+                });
+            });
+
+    </script>
+
+
 {% comment %} API event from PokeAPI {% endcomment %}
 <button id="poke-btn" class="btn btn-primary" type="button">Show Random Pokemon with Stats</button>
 

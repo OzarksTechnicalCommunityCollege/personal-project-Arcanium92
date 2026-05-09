@@ -4,7 +4,7 @@ from django.db.models import Count, Max
 from .models import ReviewRating
 
 def chart_page(request):
-    return render(request, 'chartstemp.html')
+    return render(request, 'dashboard.html')
 
 def ratings_by_game_title(request):
     """Return top 5 titles as JSON response"""

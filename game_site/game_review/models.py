@@ -105,3 +105,11 @@ class Genre(models.Model):
         ]
     def __str__(self):
         return self.name
+    
+    #Chart Model
+    class ReviewRating(models.Model):
+        gameName = models.CharField(max_length=50)
+        rating = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.gameName}: {self.rating}"
