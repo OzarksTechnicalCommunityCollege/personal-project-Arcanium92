@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'debug_toolbar',
     'rest_framework',
+    'charts',
 ]
 
 MIDDLEWARE = [

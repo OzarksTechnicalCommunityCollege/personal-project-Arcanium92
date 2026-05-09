@@ -1,6 +1,6 @@
 from django.db import models
 
-class ReviewScore(models.Model):
+class ReviewRating(models.Model):
     gameName = models.CharField(max_length=50)
     rating = models.IntegerField()
 

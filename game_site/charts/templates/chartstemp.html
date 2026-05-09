@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Ratings</title>
+    <style>
+        body {font-family: Franklin Gothic Medium; max-width: 600px; margin: 2rem auto; padding: 0 1rem;}
+        canvas { border: 1px solid #ddd; border-radius: 5px}
+    </style>
+</head>
+<body>
+    <h1>Top Rated Games</h1>
+    <canvas id="pieChart" width="600" height="400"></canvas>
+
+    <h1>Top Rated Games Pie-View</h1>
+    <canvas id="barChart" width="600" height="400"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        fetch('/chart/data-pie/')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(document.getElementById('pieChart'),{
+                    type: 'pie',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Game Rate Score',
+                            data: data.values,
+                        }]
+                    }
+                });
+            });
+
+
+        fetch('/chart/data-bar/')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(document.getElementById('barChart'),{
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Game Rate Score',
+                            data: data.values,
+                            backgroundColor: '#22c4d3'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {min: 0, max: 10},
+                        }
+                    }
+                });
+            });
+    </script>
+
+</body>
+</html>

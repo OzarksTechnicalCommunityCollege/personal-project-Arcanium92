@@ -6,6 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls', namespace='account')),
     path('', include('game_review.urls')),
+    path('chart/', include('charts.urls')),
 ]
 
 if settings.DEBUG:
