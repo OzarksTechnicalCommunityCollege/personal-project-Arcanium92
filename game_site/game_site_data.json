@@ -1,0 +1,727 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 3,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 2,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 2,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 2,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 2,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add game",
+    "content_type": 7,
+    "codename": "add_game"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change game",
+    "content_type": 7,
+    "codename": "change_game"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete game",
+    "content_type": 7,
+    "codename": "delete_game"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view game",
+    "content_type": 7,
+    "codename": "view_game"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add game review",
+    "content_type": 8,
+    "codename": "add_gamereview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change game review",
+    "content_type": 8,
+    "codename": "change_gamereview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete game review",
+    "content_type": 8,
+    "codename": "delete_gamereview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view game review",
+    "content_type": 8,
+    "codename": "view_gamereview"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add profile",
+    "content_type": 9,
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change profile",
+    "content_type": 9,
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": 9,
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view profile",
+    "content_type": 9,
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add review like",
+    "content_type": 10,
+    "codename": "add_reviewlike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change review like",
+    "content_type": 10,
+    "codename": "change_reviewlike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete review like",
+    "content_type": 10,
+    "codename": "delete_reviewlike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view review like",
+    "content_type": 10,
+    "codename": "view_reviewlike"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add genre",
+    "content_type": 11,
+    "codename": "add_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change genre",
+    "content_type": 11,
+    "codename": "change_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete genre",
+    "content_type": 11,
+    "codename": "delete_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view genre",
+    "content_type": 11,
+    "codename": "view_genre"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add review rating",
+    "content_type": 12,
+    "codename": "add_reviewrating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change review rating",
+    "content_type": 12,
+    "codename": "change_reviewrating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete review rating",
+    "content_type": 12,
+    "codename": "delete_reviewrating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view review rating",
+    "content_type": 12,
+    "codename": "view_reviewrating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add review rating",
+    "content_type": 13,
+    "codename": "add_reviewrating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change review rating",
+    "content_type": 13,
+    "codename": "change_reviewrating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete review rating",
+    "content_type": 13,
+    "codename": "delete_reviewrating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view review rating",
+    "content_type": 13,
+    "codename": "view_reviewrating"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$jmLwCQgYokkLMgeTrRskXc$pPeXhxS0fesbi+XaOjd1hoxtWooNoLzi4Zr9GgaVg+g=",
+    "last_login": "2026-05-03T13:01:09.581Z",
+    "is_superuser": false,
+    "username": "nickm",
+    "first_name": "",
+    "last_name": "",
+    "email": "nick@otc.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-03T04:17:45.912Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$AF4KQLwt2xEdg8MippyQT5$vxAYuwGg3huaInQX934YK66yC4EombMv+84Gvp/mT+k=",
+    "last_login": "2026-05-06T17:58:21.109Z",
+    "is_superuser": false,
+    "username": "nickm1992",
+    "first_name": "",
+    "last_name": "",
+    "email": "nm@otc.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T17:58:19.456Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "game_review",
+    "model": "game"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "game_review",
+    "model": "gamereview"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "game_review",
+    "model": "profile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "game_review",
+    "model": "reviewlike"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "game_review",
+    "model": "genre"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "charts",
+    "model": "reviewrating"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "game_review",
+    "model": "reviewrating"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nzfaiolkj41yxj65hh7rskf6pobkgaza",
+  "fields": {
+    "session_data": ".eJxVjMEOgjAQRP-lZ9MUaMuWo3e-wJhm290KaiChoAfjv2sTDnqbzLx5L-FxWwe_ZV78SKITtTj8dgHjjacy0BWnyyzjPK3LGGRB5L5m2c_E9-PO_gkGzMP3bclAnQCTclgbG5hbY5FBWQTNVWoIg4uadADULVYaIDoVXGNRoUlF-hj5yeQXLiGL7qTP7w_nAj_r:1wKgW0:QdK8WV0C_C6VUXL1WQ3fodOiw-8AN_Q6OzNBnb4qm64",
+    "expire_date": "2026-05-20T17:58:32.144Z"
+  }
+},
+{
+  "model": "game_review.gamereview",
+  "pk": 1,
+  "fields": {
+    "title": "Anthem",
+    "reviewer": "",
+    "author": null,
+    "rating": 3,
+    "review_text": "Could have been such an amazing game, it had incredible potential until they scraped the project.",
+    "submission": "2026-05-03T04:31:41.386Z",
+    "created": "2026-05-03T04:31:41.386Z",
+    "updated": "2026-05-03T04:31:41.386Z",
+    "like_count": 0
+  }
+},
+{
+  "model": "game_review.gamereview",
+  "pk": 2,
+  "fields": {
+    "title": "Anthem",
+    "reviewer": "",
+    "author": null,
+    "rating": 3,
+    "review_text": "Could have been such an amazing game, it had incredible potential until they scraped the project.",
+    "submission": "2026-05-03T04:34:22.525Z",
+    "created": "2026-05-03T04:34:22.539Z",
+    "updated": "2026-05-03T04:34:22.539Z",
+    "like_count": 0
+  }
+},
+{
+  "model": "game_review.gamereview",
+  "pk": 3,
+  "fields": {
+    "title": "Anthem",
+    "reviewer": "",
+    "author": null,
+    "rating": 3,
+    "review_text": "great potential until they scraped the project",
+    "submission": "2026-05-03T12:48:02.517Z",
+    "created": "2026-05-03T12:48:02.517Z",
+    "updated": "2026-05-03T12:48:02.517Z",
+    "like_count": 0
+  }
+},
+{
+  "model": "game_review.gamereview",
+  "pk": 4,
+  "fields": {
+    "title": "Borderlands 3",
+    "reviewer": "",
+    "author": null,
+    "rating": 8,
+    "review_text": "Great game, lots of action and humor and interesting enemies and storyline",
+    "submission": "2026-05-03T12:49:26.946Z",
+    "created": "2026-05-03T12:49:26.945Z",
+    "updated": "2026-05-03T12:49:26.945Z",
+    "like_count": 0
+  }
+},
+{
+  "model": "game_review.reviewlike",
+  "pk": 10,
+  "fields": {
+    "user": 2,
+    "review": 4,
+    "created": "2026-05-06T17:58:31.990Z"
+  }
+},
+{
+  "model": "charts.reviewrating",
+  "pk": 6,
+  "fields": {
+    "gameName": "Borderlands 3",
+    "rating": 8
+  }
+},
+{
+  "model": "charts.reviewrating",
+  "pk": 7,
+  "fields": {
+    "gameName": "Anthem",
+    "rating": 3
+  }
+},
+{
+  "model": "charts.reviewrating",
+  "pk": 8,
+  "fields": {
+    "gameName": "Legend of Zelda: Tears of the Kingdom",
+    "rating": 9
+  }
+},
+{
+  "model": "charts.reviewrating",
+  "pk": 9,
+  "fields": {
+    "gameName": "World of Warcraft",
+    "rating": 8
+  }
+},
+{
+  "model": "charts.reviewrating",
+  "pk": 10,
+  "fields": {
+    "gameName": "Animal Crossing",
+    "rating": 8
+  }
+}
+]
